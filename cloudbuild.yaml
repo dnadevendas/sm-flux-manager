@@ -1,3 +1,6 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
   # Build e push da imagem n8n
   - name: 'gcr.io/cloud-builders/docker'
