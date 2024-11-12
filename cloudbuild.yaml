@@ -1,6 +1,5 @@
 options:
   logging: CLOUD_LOGGING_ONLY
-  region: us-west1  # Altere para uma região permitida
 
 steps:
   # Build e push da imagem n8n
