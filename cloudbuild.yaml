@@ -1,5 +1,6 @@
 options:
   logging: CLOUD_LOGGING_ONLY
+  region: us-west1  # Altere para uma região permitida
 
 steps:
   # Build e push da imagem n8n
@@ -13,7 +14,7 @@ steps:
     args: [
       'run', 'deploy', 'n8n',
       '--image', 'gcr.io/$PROJECT_ID/n8n',
-      '--region', 'us-east1',  # Substitua pela sua região
+      '--region', 'us-west1',  # Altere para a região permitida
       '--platform', 'managed',
       '--allow-unauthenticated',
       '--set-env-vars', 'DB_TYPE=postgresdb,DB_POSTGRESDB_HOST=aws-0-us-west-1.pooler.supabase.com,DB_PORT=6543,DB_USER=postgres,DB_PASSWORD=smfluxo2025,DB_DATABASE=postgres,N8N_DIAGNOSTICS_ENABLED=false,N8N_PERSONALIZATION_ENABLED=false'
@@ -30,7 +31,7 @@ steps:
     args: [
       'run', 'deploy', 'qdrant',
       '--image', 'gcr.io/$PROJECT_ID/qdrant',
-      '--region', 'us-east1',
+      '--region', 'us-west1',  # Altere para a região permitida
       '--platform', 'managed',
       '--allow-unauthenticated'
     ]
@@ -46,7 +47,7 @@ steps:
     args: [
       'run', 'deploy', 'ollama',
       '--image', 'gcr.io/$PROJECT_ID/ollama',
-      '--region', 'us-east1',
+      '--region', 'us-west1',  # Altere para a região permitida
       '--platform', 'managed',
       '--allow-unauthenticated'
     ]
