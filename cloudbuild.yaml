@@ -5,14 +5,15 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/n8n']
 
-  # Deploy da imagem n8n no Cloud Run
+  # Deploy da imagem n8n no Cloud Run com variáveis de ambiente para Supabase
   - name: 'gcr.io/cloud-builders/gcloud'
     args: [
       'run', 'deploy', 'n8n',
       '--image', 'gcr.io/$PROJECT_ID/n8n',
       '--region', 'us-central1',  # Substitua pela sua região
       '--platform', 'managed',
-      '--allow-unauthenticated'
+      '--allow-unauthenticated',
+      '--set-env-vars', 'DB_TYPE=postgresdb,DB_POSTGRESDB_HOST=aws-0-us-west-1.pooler.supabase.com,DB_PORT=6543,DB_USER=postgres,DB_PASSWORD=smfluxo2025,DB_DATABASE=postgres,N8N_DIAGNOSTICS_ENABLED=false,N8N_PERSONALIZATION_ENABLED=false'
     ]
 
   # Build e push da imagem qdrant
