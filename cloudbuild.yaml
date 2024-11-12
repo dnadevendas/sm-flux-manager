@@ -52,3 +52,5 @@ images:
   - 'gcr.io/$PROJECT_ID/n8n'
   - 'gcr.io/$PROJECT_ID/qdrant'
   - 'gcr.io/$PROJECT_ID/ollama'
+
+
