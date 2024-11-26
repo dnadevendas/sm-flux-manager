@@ -1,5 +1,6 @@
 options:
   logging: CLOUD_LOGGING_ONLY
+  machineType: E2_MEDIUM  # Tipo de máquina menos restritivo
 
 steps:
   # Build e push da imagem n8n
