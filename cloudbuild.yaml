@@ -9,7 +9,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/n8n']
 
-# Deploy da imagem n8n no Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args: [
       'run', 'deploy', 'n8n',
@@ -17,8 +16,11 @@ steps:
       '--region', 'us-east1',
       '--platform', 'managed',
       '--allow-unauthenticated',
-      '--timeout', '300s',  # Aumentar o timeout para 5 minutos
-      '--set-env-vars', 'DB_TYPE=postgresdb,DB_POSTGRESDB_HOST=aws-0-us-west-1.pooler.supabase.com,DB_PORT=6543,DB_USER=postgres,DB_PASSWORD=smfluxo2025,DB_DATABASE=postgres,N8N_DIAGNOSTICS_ENABLED=false,N8N_PERSONALIZATION_ENABLED=false'
+      '--timeout', '600s',
+      '--set-env-vars', 'DB_TYPE=postgresdb,DB_POSTGRESDB_HOST=aws-0-us-west-1.pooler.supabase.com,DB_PORT=6543,DB_USER=postgres,DB_PASSWORD=smfluxo2025,DB_DATABASE=postgres,N8N_DIAGNOSTICS_ENABLED=false,N8N_PERSONALIZATION_ENABLED=false',
+      '--cpu', '2',
+      '--memory', '512Mi',
+      '--no-cpu-throttling'
     ]
 
 
